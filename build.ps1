@@ -1,4 +1,4 @@
-# Generates the static site into ./site from shared template + page bodies.
+﻿# Generates the static site into ./site from shared template + page bodies.
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 $out = Join-Path $root 'site'
@@ -6,7 +6,7 @@ New-Item -ItemType Directory -Force "$out\images","$out\files" | Out-Null
 
 # Assets
 Copy-Item "$root\uploads\uploads\2020\03\rachel-1.jpeg" "$out\images\rachel.jpeg" -Force
-Copy-Item "$root\uploads\uploads\2010\07\cropped-header.jpg" "$out\images\header.jpg" -Force
+Copy-Item "$root\uploads\uploads\2010\08\cropped-header-name.jpg" "$out\images\header.jpg" -Force
 Copy-Item "$root\uploads\uploads\ET-New-Client-Forms.pdf" "$out\files\ET-New-Client-Forms.pdf" -Force
 
 $nav = @(
@@ -69,7 +69,7 @@ $footer
   Set-Content -Path "$out\$file" -Value $html -Encoding UTF8
 }
 
-$hero = '  <div class="hero"><img src="images/header.jpg" alt="Rachel Rabideau, M.A., ET/P - Educational Therapy Services"></div>'
+$hero = '  <div class="hero"><img src="images/header.jpg" alt="Rachel Rabideau, M.A., ET/P - Educational Therapy"></div>'
 
 Build 'index.html' 'Welcome To My Practice!' @'
     <p class="lead">I am immensely grateful to belong to a profession I feel passionate about and that allows me to connect with amazing students and their families.</p>
@@ -154,4 +154,5 @@ Build 'contact.html' 'Contact' @'
     <p><a href="https://goo.gl/maps/F6nRY1zuScG2" target="_blank" rel="noopener noreferrer">View Larger Map</a></p>
 '@ 'Contact Rachel Rabideau, Educational Therapist in Sierra Madre, CA.'
 Write-Host "Built to $out"
+
 
